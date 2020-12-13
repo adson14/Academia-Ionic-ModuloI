@@ -11,6 +11,19 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'contatos',
+    loadChildren: () => import('./contatos/contatos.module').then( m => m.ContatosPageModule)
+  },
+  {
+    path: 'buttons',
+    loadChildren: () => import('./buttons/buttons.module').then( m => m.ButtonsPageModule)
+  },
+  {
+    path: 'alerts',
+    loadChildren: () => import('./alerts/alerts.module').then( m => m.AlertsPageModule)
+  },
+ 
 ];
 
 @NgModule({
