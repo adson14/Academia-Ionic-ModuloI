@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>segment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-segment (ionChange)="segmentChanged($event)" >
+    <ion-segment-button value="dia">
+      <ion-label>Dia</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="mes">
+      <ion-label>Mês</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+
+  <ion-card *ngIf="exibe=='dia'" >
+    <ion-card-title>Se inscreva no canal</ion-card-title>
+    <ion-card-content><img src="../../assets/icon/favicon.png"/></ion-card-content>
+    <ion-card-subtitle>Dixe o seu Like!</ion-card-subtitle>
+  </ion-card>
+
+  <ion-card *ngIf="exibe=='mes'">
+    <ion-card-title>Se inscreva no canal</ion-card-title>
+    <ion-card-content><img src="../../assets/like.png"/></ion-card-content>
+    <ion-card-subtitle>Dixe o seu Like!</ion-card-subtitle>
+  </ion-card>
+</ion-content>

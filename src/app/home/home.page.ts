@@ -1,5 +1,8 @@
+import { PopoverPage } from './../popover/popover.page';
+import { ModalPage } from './../modal/modal.page';
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import { ModalController, PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class HomePage {
 
-  constructor(public route : Router) {}
+  constructor(public route : Router,public modalController: ModalController,public popocerCtrl: PopoverController) {}
 
 
   navegar(){
@@ -16,6 +19,29 @@ export class HomePage {
 
   this.route.navigateByUrl('buttons');
   }
+
+  async presentModal(){
+    const  modal = await this.modalController.create({
+      component: ModalPage,
+      cssClass:'minhaCLasse'
+    });
+
+    return await modal.present();
+  }
+ 
+  async presentPopover(event: Event){
+    const popover = await this.popocerCtrl.create({
+      component: PopoverPage,
+      event
+    })
+
+    await popover.present();
+  }
+
+
+
+  
+  
 
 
 }
